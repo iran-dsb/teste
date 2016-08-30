@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Cod</th>
+                <th>Oferta</th>
+                <th>Preço Anterior</th>
+                <th>Desconto (%)</th>
+                <th>Novo Preço</th>
+                <th>Início</th>
+                <th>Término</th>
+                <th>Categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for oferta in object_list %}
+            <tr>
+                <td>{{oferta.pk}}</td>
+                <td><a href="{{oferta.get_absolute_url}}">{{ oferta.produto }}</a></td>
+                <td>{{ oferta.preco_anterior }}</td>
+                <td>{{ oferta.desconto }}</td>
+                <td>{{ oferta.novo_preco }}</td>
+                <td>{{ oferta.inicio_oferta|date:'d/m/Y H:i:s'|default:"Sem data definida" }}</td>
+                <td>{{ oferta.fim_oferta|date:'d/m/Y H:i:s'|default:"Sem data definida" }}</td>
+                <td>{{ oferta.categoria }}</td>
+                <td><a href="{%url 'oferta:editar' oferta.slug %}"><span class="fa fa-edit"></span> </a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

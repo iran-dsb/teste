@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h1>{{ object.produto }}</h1>
+    <h4>{{ object.empresa.nome_fantasia }}</h4>
+    <h5>{{ object.categoria }}</h5>
+    {% if object.foto %}
+    <img src="{{ object.foto.url }}" alt="{{ object.produto }}" style="width:50px" />
+    {% else %}
+    <img src="{% static 'img/1px.jpg' %}" alt="{{ object.produto }}" />
+    {% endif %}
+
+    <p>{{ object.descricao }}</p>
+    <div>
+        <div>Preço anterior: {{ object.preco_anterior }}</div>
+        <div>Desconto: {{ object.desconto }}</div>
+        <div>Oferta: {{ object.novo_preco }}</div>
+        <div>Restam: {{ object.fim_oferta|timeuntil }}</div>
+    </div>
+
+{% endblock %}

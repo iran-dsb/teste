@@ -1,0 +1,21 @@
+{
+  "name": "Imobiliaria",
+  "authors": [
+    "Iran <iran.dsb@gmail.com>"
+  ],
+  "description": "Projeto de imobiliária genérico",
+  "main": "static/js/main.js",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "startbootstrap-sb-admin-2": "^3.3.7"
+  }
+}

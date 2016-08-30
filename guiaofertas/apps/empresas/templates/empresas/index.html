@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for empresa in object_list %}
+        <a href="{{empresa.get_absolute_url}}">{{ empresa.nome_fantasia }}</a><br />
+        {{ empresa.razao_social }}
+    {% endfor %}
+{% endblock %}
